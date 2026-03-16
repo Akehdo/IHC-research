@@ -2,11 +2,10 @@
 
 | Metric | Value |
 |---|---:|
-| Accuracy | TBD |
-| Macro Precision | TBD |
-| Macro Recall | TBD |
-| Macro F1-score | TBD |
-| Weighted Precision | TBD |
-| Weighted Recall | TBD |
-| Weighted F1-score | TBD |
-
+| Accuracy | 0.94 |
+| Macro Precision | 0.93 |
+| Macro Recall | 0.93 |
+| Macro F1-score | 0.93 |
+| Weighted Precision | 0.94 |
+| Weighted Recall | 0.94 |
+| Weighted F1-score | 0.94 |
