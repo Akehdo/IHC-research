@@ -1,13 +1,9 @@
 # ResNet50 Per-Class Metrics
 
 | Class | Precision | Recall | F1-score | Support |
-|---|---:|---:|---:|---:|
-| 0 | TBD | TBD | TBD | 758 |
-| 1+ | TBD | TBD | TBD | 538 |
-| 2+ | TBD | TBD | TBD | 226 |
-| 3+ | TBD | TBD | TBD | 678 |
+|---|----------:|-------:|---------:|---:|
+| 0 |      0.96 |   0.93 |     0.94 | 758 |
+| 1+ |      0.87 |     0.90 |      0.89 | 538 |
+| 2+ |       0.90 |    0.88 |      0.89 | 226 |
+| 3+ |       0.99 |    1.00 |      0.99 | 678 |
 
-## Notes
-
-- `Support` is the number of test samples in each class.
-- Fill the metric values using the classification report.

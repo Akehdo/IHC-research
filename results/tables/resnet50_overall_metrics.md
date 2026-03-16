@@ -10,7 +10,3 @@
 | Weighted Recall | TBD |
 | Weighted F1-score | TBD |
 
-## Notes
-
-- Replace `TBD` with the final evaluation values from `src/evaluate.py`.
-- Report both macro and weighted metrics if possible.

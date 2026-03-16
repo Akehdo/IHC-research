@@ -16,7 +16,4 @@
 | Test split path | `data/Patch-based-dataset/test_data_patch` |
 | Saved weights path | `models/her2_resnet50.pth` |
 
-## Notes
 
-- The model is initialized with pretrained ResNet50 weights.
-- The final fully connected layer is replaced for 4-class classification.
