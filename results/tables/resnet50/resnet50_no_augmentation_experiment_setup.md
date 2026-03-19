@@ -1,10 +1,11 @@
-# ResNet50 Experiment Setup
+# ResNet50 No Augmentation Experiment Setup
 
 | Parameter | Value |
 |---|---|
 | Model | ResNet50 |
 | Input image size | 224 x 224 |
-| Train transform | Resize, RandomHorizontalFlip, RandomRotation, ColorJitter, ToTensor |
+| Training setup | No augmentation |
+| Train transform | Resize, ToTensor |
 | Test transform | Resize, ToTensor |
 | Batch size | 32 |
 | Epochs | 10 |
