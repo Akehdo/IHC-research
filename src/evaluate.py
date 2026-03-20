@@ -6,12 +6,12 @@ from sklearn.metrics import classification_report, confusion_matrix
 from torch.utils.data import DataLoader
 from torchvision import transforms
 from torchvision.datasets import ImageFolder
-from torchvision.models import resnet50
+from torchvision.models import resnet18
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 TEST_DIR = PROJECT_ROOT / "data" / "Patch-based-dataset" / "test_data_patch"
-MODEL_PATH = PROJECT_ROOT / "models" / "her2_resnet50_aug_seed_42.pth"
+MODEL_PATH = PROJECT_ROOT / "models" / "her2_resnet18_with_aug_seed_42.pth"
 
 
 def main():
@@ -25,9 +25,9 @@ def main():
     dataset = ImageFolder(TEST_DIR, transform=transform)
     loader = DataLoader(dataset, batch_size=32, shuffle=False, num_workers=0)
 
-    model = resnet50(weights=None)
+    model = resnet18(weights=None)
     model.fc = nn.Linear(model.fc.in_features, 4)
-    model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
+    model.load_state_dict(torch.load(MODEL_PATH, map_location=device, weights_only=True))
     model.to(device)
     model.eval()
 
