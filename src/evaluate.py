@@ -11,7 +11,7 @@ from torchvision.models import resnet50
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 TEST_DIR = PROJECT_ROOT / "data" / "Patch-based-dataset" / "test_data_patch"
-MODEL_PATH = PROJECT_ROOT / "models" / "her2_resnet50_no_aug_seed_42.pth"
+MODEL_PATH = PROJECT_ROOT / "models" / "her2_resnet50_aug_seed_42.pth"
 
 
 def main():
