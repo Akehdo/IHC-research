@@ -16,7 +16,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATASET_ROOT = PROJECT_ROOT / "data" / "Patch-based-dataset"
 TRAIN_DIR = DATASET_ROOT / "train_data_patch"
 TEST_DIR = DATASET_ROOT / "test_data_patch"
-MODEL_PATH = PROJECT_ROOT / "models" / "her2_resnet50_aug_seed_42.pth"
+MODEL_PATH = PROJECT_ROOT / "models" / "her2_resnet50_with_aug_seed_42.pth"
 
 BATCH_SIZE = 32
 EPOCHS = 10
