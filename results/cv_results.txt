@@ -1,0 +1,5 @@
+
+CV Summary (resnet50, 5-fold, seed 42)
+Mean Accuracy: 0.9534
+Mean Macro F1: 0.9439
+
