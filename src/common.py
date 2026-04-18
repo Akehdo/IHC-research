@@ -6,7 +6,14 @@ import numpy as np
 import torch
 import torch.nn as nn
 from torchvision import transforms
-from torchvision.models import ResNet18_Weights, ResNet50_Weights, resnet18, resnet50
+from torchvision.models import (
+    ConvNeXt_Tiny_Weights,
+    ResNet18_Weights,
+    ResNet50_Weights,
+    convnext_tiny,
+    resnet18,
+    resnet50,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -16,6 +23,7 @@ TEST_DIR = DATASET_ROOT / "test_data_patch"
 MODELS_DIR = PROJECT_ROOT / "models"
 
 NUM_CLASSES = 4
+SUPPORTED_MODELS = ("resnet18", "resnet50", "convnext", "convnext_tiny")
 
 
 def set_seed(seed: int) -> None:
@@ -61,12 +69,16 @@ def get_transforms(use_augmentation: bool = True) -> Tuple[transforms.Compose, t
 def get_model(model_name: str) -> nn.Module:
     if model_name == "resnet18":
         model = resnet18(weights=ResNet18_Weights.DEFAULT)
+        model.fc = nn.Linear(model.fc.in_features, NUM_CLASSES)
     elif model_name == "resnet50":
         model = resnet50(weights=ResNet50_Weights.DEFAULT)
+        model.fc = nn.Linear(model.fc.in_features, NUM_CLASSES)
+    elif model_name in {"convnext", "convnext_tiny"}:
+        model = convnext_tiny(weights=ConvNeXt_Tiny_Weights.DEFAULT)
+        model.classifier[2] = nn.Linear(model.classifier[2].in_features, NUM_CLASSES)
     else:
         raise ValueError(f"Unsupported model: {model_name}")
 
-    model.fc = nn.Linear(model.fc.in_features, NUM_CLASSES)
     return model
 
 

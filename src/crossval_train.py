@@ -10,7 +10,16 @@ from torch.utils.data import DataLoader, Subset
 from torchvision.datasets import ImageFolder
 from tqdm import tqdm
 
-from common import MODELS_DIR, PROJECT_ROOT, TRAIN_DIR, get_device, get_model, get_transforms, set_seed
+from common import (
+    MODELS_DIR,
+    PROJECT_ROOT,
+    SUPPORTED_MODELS,
+    TRAIN_DIR,
+    get_device,
+    get_model,
+    get_transforms,
+    set_seed,
+)
 
 RESULTS_DIR = PROJECT_ROOT / "results"
 CV_RESULTS = RESULTS_DIR / "cv_results.txt"
@@ -20,7 +29,7 @@ CV_METRICS_CSV = RESULTS_DIR / "cv_metrics.csv"
 def parse_args() -> argparse.Namespace:
     # Command-line settings for the CV run
     parser = argparse.ArgumentParser(description="Cross-validation training for HER2 classifiers")
-    parser.add_argument("--model", choices=["resnet18", "resnet50"], required=True)
+    parser.add_argument("--model", choices=SUPPORTED_MODELS, required=True)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--epochs", type=int, default=50)
     parser.add_argument("--patience", type=int, default=5)
